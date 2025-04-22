@@ -16,7 +16,7 @@ builder.Host.UseOrleans((_, silo) => silo
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo { Title = "Example API with Orleans.Results for Orleans 8" }));
+builder.Services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo { Title = "Example API with Orleans.Results for Orleans 9" }));
 
 var app = builder.Build();
 
@@ -28,7 +28,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapGet("minimalapis/users/{id}", async (IClusterClient client, int id)
- => await client.GetGrain<ITenant>("").GetUser(id) switch
+ => await client.GetGrain<ITenant>("A").GetUser(id) switch
     {
         { IsSuccess: true                   } r => Results.Ok(r.Value),
         { ErrorNr: ErrorNr.UserNotFound } r => Results.NotFound(r.ErrorsText),
@@ -38,7 +38,7 @@ app.MapGet("minimalapis/users/{id}", async (IClusterClient client, int id)
 
 app.MapGet("minimalapis/usersataddress", async (IClusterClient client, string zip, string nr)
  => {
-        var result = await client.GetGrain<ITenant>("").GetUsersAtAddress(zip, nr);
+        var result = await client.GetGrain<ITenant>("A").GetUsersAtAddress(zip, nr);
 
         return result.TryAsValidationErrors(ErrorNr.ValidationError, out var validationErrors)
             ? Results.ValidationProblem(validationErrors)
