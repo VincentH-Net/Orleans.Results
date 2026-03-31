@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Example;
 
 [ApiController]
-public class Controller(IClusterClient client) : ControllerBase
+public class UsersController(IClusterClient client) : ControllerBase
 {
     [HttpGet("mvc/users/{id}")]
     public async Task<ActionResult<string>> GetUser(int id)
