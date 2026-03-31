@@ -9,7 +9,7 @@ public class ResultWithValueTests(ClusterFixture fixture)
 {
     readonly TestingHost.TestCluster cluster = fixture.Cluster;
 
-    ITenant Tenant => cluster.GrainFactory.GetGrain<ITenant>("");
+    ITenant Tenant => cluster.GrainFactory.GetGrain<ITenant>("tenant-a");
 
     [Fact]
     public async Task GetValue_OnSuccess_ReturnsValue()

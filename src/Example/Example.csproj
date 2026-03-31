@@ -1,13 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AnalysisLevel>preview-All</AnalysisLevel>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <ImplicitUsings>enable</ImplicitUsings>
-    <NoWarn>$(NoWarn);EnableGenerateDocumentationFile</NoWarn>
+    <!-- CA1515 is excluded here because this sample intentionally exposes public controller and shared contract types that are discovered or reused across assemblies. -->
+    <NoWarn>$(NoWarn);EnableGenerateDocumentationFile;CA1515</NoWarn>
   </PropertyGroup>
 
     <ItemGroup>
@@ -16,11 +17,11 @@
     </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Orleans.Runtime" Version="9.1.2" />
-    <PackageReference Include="Microsoft.Orleans.Persistence.Memory" Version="9.1.2" />
-    <PackageReference Include="Microsoft.Orleans.Sdk" Version="9.1.2" />
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="8.1.1" />
+    <PackageReference Include="Microsoft.Orleans.Runtime" Version="10.0.1" />
+    <PackageReference Include="Microsoft.Orleans.Persistence.Memory" Version="10.0.1" />
+    <PackageReference Include="Microsoft.Orleans.Sdk" Version="10.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.2" />
   </ItemGroup>
 
     <ItemGroup>

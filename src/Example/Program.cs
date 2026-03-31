@@ -1,9 +1,9 @@
-﻿using Orleans.Runtime;
-using Example;
-using Microsoft.OpenApi.Models;
-using System.Collections.Immutable;
-using System.Text.RegularExpressions;
+﻿using System.Collections.Immutable;
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
+using Microsoft.OpenApi;
+using Orleans.Runtime;
+using Example;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +16,7 @@ builder.Host.UseOrleans((_, silo) => silo
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo { Title = "Example API with Orleans.Results for Orleans 9" }));
+builder.Services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo { Title = "Example API with Orleans.Results for Orleans 10" }));
 
 var app = builder.Build();
 
