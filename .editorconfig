@@ -1,4 +1,4 @@
-﻿# Version 20250418 - C# 13
+﻿# Version 20260205 - C# 14
 # Origin: see https://github.com/VincentH-Net/Modern.CSharp.Templates/blob/main/Editorconfig.md
 
 # This file does not inherit .editorconfig settings from higher directories - where possible, place it at the root of the repository
@@ -181,6 +181,12 @@ csharp_using_directive_placement = outside_namespace:warning # Default: outside_
 csharp_prefer_system_threading_lock = true:warning # Default: true:suggestion
 csharp_style_prefer_unbound_generic_type_in_nameof = true:warning # Default: true:suggestion
 csharp_prefer_static_anonymous_function = true:warning # Default: true:suggestion
+
+# Preferences added with .NET 10 / C# 14
+dotnet_prefer_system_hash_code = true
+csharp_style_pattern_local_over_anonymous_function = true:warning # Default: true:suggestion
+csharp_style_prefer_implicitly_typed_lambda_expression = true:warning # Default: true:suggestion
+csharp_style_prefer_simple_property_accessors = true
 
 # New line preferences
 csharp_style_allow_blank_line_after_colon_in_constructor_initializer_experimental = true:silent
